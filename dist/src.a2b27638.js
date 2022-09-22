@@ -210,14 +210,19 @@ function getData() {
 
 function _getData() {
   _getData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var url;
+    var url, dataPromise;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             url = "https://statfin.stat.fi/PxWeb/sq/4e244893-7761-4c4f-8e55-7a8d41d86eff";
+            _context.next = 3;
+            return fetch(url);
 
-          case 1:
+          case 3:
+            dataPromise = _context.sent;
+
+          case 4:
           case "end":
             return _context.stop();
         }
