@@ -163,9 +163,8 @@ function initializeCode() {
               dataJSON = _context.sent;
               municipalityArray = Object.values(dataJSON.dataset.dimension.Alue.category.label);
               populationArray = Object.values(dataJSON.dataset.value);
-              i = 0;
 
-              while (municipalityArray[i] != null && populationArray[i] != null) {
+              for (i = 0; i < 310; i++) {
                 tr = document.createElement("tr");
                 td1 = document.createElement("td");
                 td2 = document.createElement("td");
@@ -174,10 +173,9 @@ function initializeCode() {
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 dataTable.appendChild(tr);
-                i++;
               }
 
-            case 11:
+            case 10:
             case "end":
               return _context.stop();
           }
