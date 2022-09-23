@@ -145,7 +145,7 @@ function initializeCode() {
 
   function _getData() {
     _getData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var url, dataPromise, dataJSON, municipalityArray, populationArray, url2, dataPromise2, dataJSON2, employmentArray, i, tr, td1, td2, td3, td4;
+      var url, dataPromise, dataJSON, municipalityArray, populationArray, url2, dataPromise2, dataJSON2, employmentArray, i, tr, td1, td2, td3, td4, employmentPercentage;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -186,7 +186,17 @@ function initializeCode() {
                 td1.innerText = municipalityArray[i];
                 td2.innerText = populationArray[i];
                 td3.innerText = employmentArray[i];
-                td4.innerText = (employmentArray[i] / populationArray[i] * 100).toFixed(2) + "%";
+                employmentPercentage = employmentArray[i] / populationArray[i] * 100;
+                td4.innerText = employmentPercentage.toFixed(2) + "%";
+
+                if (employmentPercentage > 45) {
+                  tr.classList.add("green");
+                } else if (employmentPercentage < 25) {
+                  tr.classList.add("red");
+                } else {
+                  tr.classList.add("basic");
+                }
+
                 tr.appendChild(td1);
                 tr.appendChild(td2);
                 tr.appendChild(td3);
