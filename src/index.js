@@ -22,7 +22,9 @@ function initializeCode() {
     );
     const populationArray = Object.values(dataJSON.dataset.value);
 
-    for (var i = 0; i < 310; i++) {
+    var i = 0;
+
+    while (municipalityArray[i] != null && populationArray[i] != null) {
       let tr = document.createElement("tr");
       let td1 = document.createElement("td");
       let td2 = document.createElement("td");
@@ -34,6 +36,8 @@ function initializeCode() {
       tr.appendChild(td2);
 
       dataTable.appendChild(tr);
+
+      i++;
     }
   }
 
