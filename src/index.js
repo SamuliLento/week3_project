@@ -44,8 +44,19 @@ function initializeCode() {
       td1.innerText = municipalityArray[i];
       td2.innerText = populationArray[i];
       td3.innerText = employmentArray[i];
-      td4.innerText =
-        ((employmentArray[i] / populationArray[i]) * 100).toFixed(2) + "%";
+
+      let employmentPercentage =
+        (employmentArray[i] / populationArray[i]) * 100;
+
+      td4.innerText = employmentPercentage.toFixed(2) + "%";
+
+      if (employmentPercentage > 45) {
+        tr.classList.add("green");
+      } else if (employmentPercentage < 25) {
+        tr.classList.add("red");
+      } else {
+        tr.classList.add("basic");
+      }
 
       tr.appendChild(td1);
       tr.appendChild(td2);
@@ -57,6 +68,5 @@ function initializeCode() {
       i++;
     }
   }
-
   getData();
 }
