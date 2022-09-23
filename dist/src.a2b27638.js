@@ -145,7 +145,7 @@ function initializeCode() {
 
   function _getData() {
     _getData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var url, dataPromise, dataJSON, municipalityArray, populationArray, i, tr, td1, td2;
+      var url, dataPromise, dataJSON, municipalityArray, populationArray, url2, dataPromise2, dataJSON2, employmentArray, i, tr, td1, td2, td3, td4;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -163,19 +163,39 @@ function initializeCode() {
               dataJSON = _context.sent;
               municipalityArray = Object.values(dataJSON.dataset.dimension.Alue.category.label);
               populationArray = Object.values(dataJSON.dataset.value);
+              url2 = "https://statfin.stat.fi/PxWeb/sq/5e288b40-f8c8-4f1e-b3b0-61b86ce5c065";
+              _context.next = 12;
+              return fetch(url2);
 
-              for (i = 0; i < 310; i++) {
+            case 12:
+              dataPromise2 = _context.sent;
+              _context.next = 15;
+              return dataPromise2.json();
+
+            case 15:
+              dataJSON2 = _context.sent;
+              employmentArray = Object.values(dataJSON2.dataset.value);
+              i = 0;
+
+              while (municipalityArray[i] != null && populationArray[i] != null && employmentArray[i] != null) {
                 tr = document.createElement("tr");
                 td1 = document.createElement("td");
                 td2 = document.createElement("td");
+                td3 = document.createElement("td");
+                td4 = document.createElement("td");
                 td1.innerText = municipalityArray[i];
                 td2.innerText = populationArray[i];
+                td3.innerText = employmentArray[i];
+                td4.innerText = (employmentArray[i] / populationArray[i] * 100).toFixed(2) + "%";
                 tr.appendChild(td1);
                 tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
                 dataTable.appendChild(tr);
+                i++;
               }
 
-            case 10:
+            case 19:
             case "end":
               return _context.stop();
           }
@@ -215,7 +235,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39099" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36851" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
