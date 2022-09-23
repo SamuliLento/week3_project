@@ -164,7 +164,7 @@ function initializeCode() {
               municipalityArray = Object.values(dataJSON.dataset.dimension.Alue.category.label);
               populationArray = Object.values(dataJSON.dataset.value);
 
-              for (i = 0; i <= 310; i++) {
+              for (i = 0; i < 310; i++) {
                 tr = document.createElement("tr");
                 td1 = document.createElement("td");
                 td2 = document.createElement("td");
