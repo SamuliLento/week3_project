@@ -22,7 +22,7 @@ function initializeCode() {
     );
     const populationArray = Object.values(dataJSON.dataset.value);
 
-    for (var i = 0; i <= 310; i++) {
+    for (var i = 0; i < 310; i++) {
       let tr = document.createElement("tr");
       let td1 = document.createElement("td");
       let td2 = document.createElement("td");
